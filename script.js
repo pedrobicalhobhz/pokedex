@@ -4,7 +4,7 @@ formulario.addEventListener('submit', function(e) {
 
     e.preventDefault()//Bloqueia o refresh caso campo vazio
 
-    let urlForm = "http://pokeapi.co/api/v2/pokemon/"; //URL da API metodo GET
+    let urlForm = "https://pokeapi.co/api/v2/pokemon/"; //URL da API metodo GET
     let nome = document.getElementById("name")
     urlForm = urlForm + this.name.value
     urlForm = urlForm.toLowerCase()
