@@ -17,9 +17,13 @@ formulario.addEventListener('submit', function(e) {
         .then(function(data){
             console.log(data)
             html = 'Name:  ' + maiusculo(data.name) + '<br>'
-            html = html + 'Type: ' + maiusculo(data.types[0].type.name)
-            resposta.innerHTML = html
-
+            data.types.map((type, index)=>{
+                if(index > 0)
+                 html += ' | '
+              
+                html += maiusculo(type.type.name)
+              })
+              resposta.innerHTML = html
             imagem.innerHTML = "<img src='" + data.sprites.front_default + "'><img src='" + data.sprites.back_default + "'> "
             
             
@@ -30,9 +34,10 @@ formulario.addEventListener('submit', function(e) {
             } else {
                 html = err
             }
+            
             resposta.innerHTML = html
         })
-
+        
     
 
 });
